@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拼音星球</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="stage" aria-label="拼音星球游戏">
+        <div class="sky" aria-hidden="true">
+          <span class="cloud cloud-a"></span>
+          <span class="cloud cloud-b"></span>
+          <span class="star star-a"></span>
+          <span class="star star-b"></span>
+          <span class="star star-c"></span>
+        </div>
+
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Pin Yin Planet</p>
+            <h1>拼音星球</h1>
+          </div>
+          <div class="stats" aria-label="游戏分数">
+            <div>
+              <span>分数</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>连对</span>
+              <strong id="streak">0</strong>
+            </div>
+            <div>
+              <span>星星</span>
+              <strong id="stars">0</strong>
+            </div>
+          </div>
+        </header>
+
+        <nav class="mode-tabs" aria-label="练习模式">
+          <button class="tab active" data-mode="initials" type="button">声母</button>
+          <button class="tab" data-mode="finals" type="button">韵母</button>
+          <button class="tab" data-mode="tones" type="button">声调</button>
+          <button class="tab" data-mode="words" type="button">词语</button>
+        </nav>
+
+        <section class="play-area">
+          <aside class="mascot-panel">
+            <div class="flight-track" aria-hidden="true">
+              <svg class="flight-path" viewBox="0 0 300 210" preserveAspectRatio="none">
+                <defs>
+                  <marker id="pathArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+                    <path d="M2 2 10 6 2 10Z" fill="#244b5a" />
+                  </marker>
+                </defs>
+                <path d="M34 166 C84 70 154 62 200 112 S258 146 274 54" />
+              </svg>
+              <span class="planet planet-home"></span>
+              <span class="planet planet-goal"></span>
+              <div class="rocket-wrap" id="rocketWrap">
+                <svg class="rocket" viewBox="0 0 220 220" role="img" aria-label="小火箭">
+                  <defs>
+                    <linearGradient id="rocketBody" x1="0" x2="1" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#ffffff" />
+                      <stop offset="100%" stop-color="#dff4ff" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M110 17c35 18 58 55 62 111-18 13-39 20-62 20s-44-7-62-20c4-56 27-93 62-111Z" fill="url(#rocketBody)" stroke="#255066" stroke-width="5" />
+                  <circle cx="110" cy="80" r="28" fill="#8edbff" stroke="#255066" stroke-width="5" />
+                  <path d="M53 126c-18 10-29 28-32 54 23-4 40-15 52-34Zm114 0c18 10 29 28 32 54-23-4-40-15-52-34Z" fill="#ffcf56" stroke="#255066" stroke-width="5" />
+                  <path d="M88 151h44l-7 35H95Z" fill="#ff7d5c" stroke="#255066" stroke-width="5" />
+                  <path d="M94 187c3 10 8 17 16 24 8-7 13-14 16-24Z" fill="#ffcf56" />
+                </svg>
+              </div>
+            </div>
+            <div class="mission">
+              <span id="roundLabel">第 1 题</span>
+              <p id="hint">听一听，看一看，选出正确答案。</p>
+            </div>
+          </aside>
+
+          <section class="question-panel" aria-live="polite">
+            <div class="question-card">
+              <button class="sound-button" id="speakButton" type="button" aria-label="朗读题目">
+                <span class="sound-icon">▶</span>
+              </button>
+              <div class="prompt-wrap">
+                <p class="prompt-label" id="promptLabel">这个拼音怎么读？</p>
+                <div class="prompt" id="prompt">b</div>
+                <p class="prompt-sub" id="promptSub">声母练习</p>
+              </div>
+            </div>
+
+            <div class="answers" id="answers"></div>
+            <div class="feedback" id="feedback">准备好了吗？选择一个答案开始飞行。</div>
+          </section>
+        </section>
+
+        <footer class="controls">
+          <button class="control-button" id="skipButton" type="button">换一题</button>
+          <button class="control-button primary" id="resetButton" type="button">重新开始</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
