@@ -250,15 +250,43 @@ h1 {
 .rocket-wrap {
   --rocket-progress: 0%;
   position: absolute;
-  width: min(150px, 42%);
+  width: 76px;
+  aspect-ratio: 1;
   left: 0;
   top: 0;
   offset-path: path("M34 166 C84 70 154 62 200 112 S258 146 274 54");
   offset-distance: var(--rocket-progress);
-  offset-rotate: auto 90deg;
+  offset-rotate: 0deg;
   transform: translate(-50%, -50%);
   transition: offset-distance 650ms cubic-bezier(0.18, 0.9, 0.22, 1.18);
   will-change: offset-distance;
+}
+
+.star-flyer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 0 rgba(36, 75, 90, 0.1));
+  animation: starFloat 2.8s ease-in-out infinite;
+}
+
+.star-core {
+  position: absolute;
+  inset: 11px;
+  background: var(--sun);
+  border: 4px solid #244b5a;
+  clip-path: polygon(50% 0%, 62% 32%, 96% 36%, 70% 58%, 78% 92%, 50% 74%, 22% 92%, 30% 58%, 4% 36%, 38% 32%);
+}
+
+.star-trail {
+  position: absolute;
+  left: -18px;
+  top: 31px;
+  width: 34px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 125, 92, 0.28);
+  box-shadow: -18px 5px 0 rgba(120, 216, 232, 0.24);
 }
 
 .rocket-wrap.boost::after {
@@ -272,12 +300,6 @@ h1 {
   background: rgba(255, 125, 92, 0.34);
   filter: blur(2px);
   animation: puff 520ms ease-out;
-}
-
-.rocket {
-  width: 100%;
-  filter: drop-shadow(0 18px 0 rgba(36, 75, 90, 0.08));
-  animation: float 3.2s ease-in-out infinite;
 }
 
 .planet {
@@ -301,13 +323,13 @@ h1 {
   background: var(--sun);
 }
 
-@keyframes float {
+@keyframes starFloat {
   0%,
   100% {
-    transform: translateY(0) rotate(-2deg);
+    transform: translateY(0) rotate(-5deg);
   }
   50% {
-    transform: translateY(-14px) rotate(2deg);
+    transform: translateY(-8px) rotate(6deg);
   }
 }
 
@@ -536,7 +558,7 @@ h1 {
   }
 
   .rocket-wrap {
-    width: min(82px, 42%);
+    width: 58px;
   }
 
   .question-card {
