@@ -1,0 +1,599 @@
+:root {
+  color-scheme: light;
+  --ink: #173247;
+  --muted: #557084;
+  --line: #c8dfe6;
+  --paper: #fffdf7;
+  --aqua: #78d8e8;
+  --leaf: #72c66f;
+  --sun: #ffc857;
+  --coral: #ff7d5c;
+  --berry: #e95f92;
+  --blue: #5c8df6;
+  --shadow: 0 18px 40px rgba(24, 67, 91, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 200, 87, 0.42), transparent 20rem),
+    radial-gradient(circle at 80% 18%, rgba(120, 216, 232, 0.45), transparent 22rem),
+    linear-gradient(145deg, #e8f8fb 0%, #fff8e7 58%, #eef9ec 100%);
+  color: var(--ink);
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.stage {
+  position: relative;
+  width: min(1120px, 100%);
+  min-height: min(760px, calc(100vh - 48px));
+  overflow: hidden;
+  border: 4px solid #244b5a;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #fdfcf4 0%, #f1fbff 100%);
+  box-shadow: var(--shadow);
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 48px;
+  border: 3px solid rgba(36, 75, 90, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  bottom: 17px;
+  border-radius: 50%;
+  background: inherit;
+  border: inherit;
+}
+
+.cloud::before {
+  left: 28px;
+  width: 52px;
+  height: 52px;
+}
+
+.cloud::after {
+  right: 24px;
+  width: 64px;
+  height: 64px;
+}
+
+.cloud-a {
+  top: 132px;
+  left: 7%;
+}
+
+.cloud-b {
+  right: 6%;
+  bottom: 124px;
+  transform: scale(0.8);
+}
+
+.star {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--sun);
+  clip-path: polygon(50% 0%, 62% 35%, 100% 50%, 62% 65%, 50% 100%, 38% 65%, 0% 50%, 38% 35%);
+}
+
+.star-a {
+  top: 80px;
+  right: 22%;
+}
+
+.star-b {
+  left: 42%;
+  bottom: 86px;
+  background: var(--berry);
+}
+
+.star-c {
+  top: 265px;
+  right: 7%;
+  background: var(--leaf);
+}
+
+.topbar,
+.mode-tabs,
+.play-area,
+.controls {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 34px 16px;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  color: var(--coral);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 5vw, 4.4rem);
+  line-height: 0.96;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 82px);
+  gap: 10px;
+}
+
+.stats div {
+  min-height: 72px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #244b5a;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 0 rgba(36, 75, 90, 0.11);
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.stats strong {
+  font-size: 1.7rem;
+}
+
+.mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 34px 22px;
+}
+
+.tab,
+.control-button {
+  min-height: 48px;
+  border: 3px solid #244b5a;
+  border-radius: 16px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 850;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.tab:hover,
+.control-button:hover,
+.answer:hover,
+.sound-button:hover {
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background: var(--sun);
+  box-shadow: 0 7px 0 #d79b1b;
+}
+
+.play-area {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 22px;
+  padding: 0 34px 22px;
+}
+
+.mascot-panel {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  min-height: 410px;
+}
+
+.flight-track {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.flight-path {
+  position: absolute;
+  inset: 12px 0 6px;
+  width: 100%;
+  height: calc(100% - 18px);
+}
+
+.flight-path path {
+  fill: none;
+  stroke: rgba(36, 75, 90, 0.34);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 2 18;
+  marker-end: url("#pathArrow");
+}
+
+.rocket-wrap {
+  --rocket-progress: 0%;
+  position: absolute;
+  width: min(150px, 42%);
+  left: 0;
+  top: 0;
+  offset-path: path("M34 166 C84 70 154 62 200 112 S258 146 274 54");
+  offset-distance: var(--rocket-progress);
+  offset-rotate: auto 90deg;
+  transform: translate(-50%, -50%);
+  transition: offset-distance 650ms cubic-bezier(0.18, 0.9, 0.22, 1.18);
+  will-change: offset-distance;
+}
+
+.rocket-wrap.boost::after {
+  content: "";
+  position: absolute;
+  left: 24%;
+  bottom: -10px;
+  width: 52px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 125, 92, 0.34);
+  filter: blur(2px);
+  animation: puff 520ms ease-out;
+}
+
+.rocket {
+  width: 100%;
+  filter: drop-shadow(0 18px 0 rgba(36, 75, 90, 0.08));
+  animation: float 3.2s ease-in-out infinite;
+}
+
+.planet {
+  position: absolute;
+  width: 48px;
+  aspect-ratio: 1;
+  border: 4px solid #244b5a;
+  border-radius: 50%;
+  box-shadow: inset -8px -8px 0 rgba(36, 75, 90, 0.12);
+}
+
+.planet-home {
+  left: 0;
+  bottom: 26px;
+  background: var(--leaf);
+}
+
+.planet-goal {
+  right: 0;
+  top: 32px;
+  background: var(--sun);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+@keyframes puff {
+  from {
+    opacity: 0.9;
+    transform: scale(0.8) translateX(-10px);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8) translateX(-38px);
+  }
+}
+
+.mission {
+  border: 3px solid #244b5a;
+  border-radius: 22px;
+  background: #fff;
+  padding: 18px;
+  box-shadow: 0 8px 0 rgba(36, 75, 90, 0.1);
+}
+
+.mission span {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #e9f8d8;
+  color: #346a31;
+  font-weight: 850;
+}
+
+.mission p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.question-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.question-card {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  min-height: 230px;
+  border: 4px solid #244b5a;
+  border-radius: 26px;
+  background:
+    linear-gradient(90deg, rgba(120, 216, 232, 0.18), transparent 38%),
+    #fff;
+  padding: 24px;
+  box-shadow: 0 10px 0 rgba(36, 75, 90, 0.11);
+}
+
+.sound-button {
+  width: 70px;
+  aspect-ratio: 1;
+  border: 3px solid #244b5a;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 7px 0 #c94731;
+}
+
+.sound-icon {
+  display: block;
+  transform: translateX(2px);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.prompt-wrap {
+  min-width: 0;
+}
+
+.prompt-label,
+.prompt-sub {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.prompt {
+  margin: 8px 0;
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+  font-size: clamp(4rem, 12vw, 7.8rem);
+  font-weight: 950;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.answer {
+  min-height: 96px;
+  border: 3px solid #244b5a;
+  border-radius: 20px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 0 rgba(36, 75, 90, 0.12);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.answer.correct {
+  background: #c8f2c0;
+  box-shadow: 0 8px 0 #75ba67;
+}
+
+.answer.wrong {
+  background: #ffd7cc;
+  box-shadow: 0 8px 0 #e58973;
+}
+
+.feedback {
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  border: 3px dashed rgba(36, 75, 90, 0.34);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+  padding: 12px 16px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.feedback.good {
+  border-style: solid;
+  background: #efffe9;
+  color: #2f7432;
+}
+
+.feedback.try {
+  border-style: solid;
+  background: #fff0e9;
+  color: #a43f29;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 34px 30px;
+}
+
+.control-button {
+  min-width: 130px;
+  padding: 0 20px;
+}
+
+.control-button.primary {
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 7px 0 #3864bf;
+}
+
+@media (max-width: 820px) {
+  .game-shell {
+    padding: 10px;
+  }
+
+  .stage {
+    min-height: calc(100vh - 20px);
+    border-radius: 18px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    padding: 22px 18px 14px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 58px);
+    gap: 6px;
+  }
+
+  .stats div {
+    min-height: 58px;
+    border-radius: 14px;
+  }
+
+  .stats strong {
+    font-size: 1.25rem;
+  }
+
+  .mode-tabs {
+    padding: 0 18px 16px;
+    gap: 7px;
+  }
+
+  .tab {
+    min-height: 44px;
+    border-radius: 13px;
+    font-size: 0.94rem;
+  }
+
+  .play-area {
+    grid-template-columns: 1fr;
+    padding: 0 18px 18px;
+  }
+
+  .mascot-panel {
+    grid-template-columns: minmax(180px, 34%) 1fr;
+    align-items: center;
+    min-height: 0;
+  }
+
+  .flight-track {
+    min-height: 104px;
+  }
+
+  .rocket-wrap {
+    width: min(82px, 42%);
+  }
+
+  .question-card {
+    grid-template-columns: 58px minmax(0, 1fr);
+    min-height: 176px;
+    padding: 18px;
+  }
+
+  .sound-button {
+    width: 54px;
+  }
+
+  .answers {
+    gap: 10px;
+  }
+
+  .answer {
+    min-height: 78px;
+  }
+
+  .controls {
+    padding: 0 18px 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    display: grid;
+  }
+
+  .stats {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mode-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .answers {
+    grid-template-columns: 1fr;
+  }
+
+  .mascot-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .flight-track {
+    min-height: 120px;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .control-button {
+    min-width: 0;
+  }
+}
