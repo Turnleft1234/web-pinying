@@ -4,29 +4,29 @@ const banks = {
     promptLabel: "这个声母怎么读？",
     hint: "声母共 23 个，读得轻一点、短一点。",
     items: [
-      { prompt: "b", answer: "爸", speak: "爸" },
-      { prompt: "p", answer: "跑", speak: "跑" },
-      { prompt: "m", answer: "妈", speak: "妈" },
-      { prompt: "f", answer: "飞", speak: "飞" },
-      { prompt: "d", answer: "大", speak: "大" },
-      { prompt: "t", answer: "他", speak: "他" },
-      { prompt: "n", answer: "你", speak: "你" },
-      { prompt: "l", answer: "乐", speak: "乐" },
+      { prompt: "b", answer: "播", speak: "播" },
+      { prompt: "p", answer: "泼", speak: "泼" },
+      { prompt: "m", answer: "摸", speak: "摸" },
+      { prompt: "f", answer: "佛", speak: "佛" },
+      { prompt: "d", answer: "得", speak: "得" },
+      { prompt: "t", answer: "特", speak: "特" },
+      { prompt: "n", answer: "呢", speak: "呢" },
+      { prompt: "l", answer: "了", speak: "了" },
       { prompt: "g", answer: "哥", speak: "哥" },
-      { prompt: "k", answer: "可", speak: "可" },
-      { prompt: "h", answer: "好", speak: "好" },
+      { prompt: "k", answer: "颗", speak: "颗" },
+      { prompt: "h", answer: "喝", speak: "喝" },
       { prompt: "j", answer: "鸡", speak: "鸡" },
-      { prompt: "q", answer: "七", speak: "七" },
+      { prompt: "q", answer: "期", speak: "期" },
       { prompt: "x", answer: "西", speak: "西" },
-      { prompt: "zh", answer: "猪", speak: "猪" },
+      { prompt: "zh", answer: "只", speak: "只" },
       { prompt: "ch", answer: "吃", speak: "吃" },
-      { prompt: "sh", answer: "书", speak: "书" },
+      { prompt: "sh", answer: "师", speak: "师" },
       { prompt: "r", answer: "日", speak: "日" },
-      { prompt: "z", answer: "子", speak: "子" },
-      { prompt: "c", answer: "草", speak: "草" },
-      { prompt: "s", answer: "三", speak: "三" },
-      { prompt: "y", answer: "衣", speak: "衣" },
-      { prompt: "w", answer: "乌", speak: "乌" }
+      { prompt: "z", answer: "字", speak: "字" },
+      { prompt: "c", answer: "刺", speak: "刺" },
+      { prompt: "s", answer: "丝", speak: "丝" },
+      { prompt: "y", answer: "医", speak: "医" },
+      { prompt: "w", answer: "屋", speak: "屋" }
     ]
   },
   singleFinals: {
@@ -36,7 +36,7 @@ const banks = {
     items: [
       { prompt: "a", answer: "啊", speak: "啊" },
       { prompt: "o", answer: "哦", speak: "哦" },
-      { prompt: "e", answer: "饿", speak: "饿" },
+      { prompt: "e", answer: "鹅", speak: "鹅" },
       { prompt: "i", answer: "衣", speak: "衣" },
       { prompt: "u", answer: "乌", speak: "乌" },
       { prompt: "ü", answer: "鱼", speak: "鱼" }
@@ -47,13 +47,13 @@ const banks = {
     promptLabel: "这个复韵母怎么读？",
     hint: "复韵母共 8 个，注意从前一个口型滑到后一个口型。",
     items: [
-      { prompt: "ai", answer: "爱", speak: "爱" },
-      { prompt: "ei", answer: "杯", speak: "杯" },
-      { prompt: "ui", answer: "水", speak: "水" },
-      { prompt: "ao", answer: "包", speak: "包" },
-      { prompt: "ou", answer: "手", speak: "手" },
-      { prompt: "iu", answer: "牛", speak: "牛" },
-      { prompt: "ie", answer: "叶", speak: "叶" },
+      { prompt: "ai", answer: "唉", speak: "唉" },
+      { prompt: "ei", answer: "诶", speak: "诶" },
+      { prompt: "ui", answer: "围", speak: "围" },
+      { prompt: "ao", answer: "奥", speak: "奥" },
+      { prompt: "ou", answer: "欧", speak: "欧" },
+      { prompt: "iu", answer: "油", speak: "油" },
+      { prompt: "ie", answer: "椰", speak: "椰" },
       { prompt: "üe", answer: "月", speak: "月" }
     ]
   },
@@ -71,9 +71,9 @@ const banks = {
     hint: "前鼻韵母共 5 个，尾音轻轻收在 n。",
     items: [
       { prompt: "an", answer: "安", speak: "安" },
-      { prompt: "en", answer: "门", speak: "门" },
-      { prompt: "in", answer: "因", speak: "因" },
-      { prompt: "un", answer: "温", speak: "温" },
+      { prompt: "en", answer: "嗯", speak: "嗯" },
+      { prompt: "in", answer: "印", speak: "印" },
+      { prompt: "un", answer: "蚊", speak: "蚊" },
       { prompt: "ün", answer: "云", speak: "云" }
     ]
   },
@@ -82,10 +82,10 @@ const banks = {
     promptLabel: "这个后鼻韵母怎么读？",
     hint: "后鼻韵母共 4 个，尾音落在 ng。",
     items: [
-      { prompt: "ang", answer: "羊", speak: "羊" },
-      { prompt: "eng", answer: "风", speak: "风" },
+      { prompt: "ang", answer: "昂", speak: "昂" },
+      { prompt: "eng", answer: "哼", speak: "哼" },
       { prompt: "ing", answer: "鹰", speak: "鹰" },
-      { prompt: "ong", answer: "红", speak: "红" }
+      { prompt: "ong", answer: "嗡", speak: "嗡" }
     ]
   },
   wholeSyllables: {
@@ -93,20 +93,20 @@ const banks = {
     promptLabel: "这个整体认读音节怎么读？",
     hint: "整体认读音节共 16 个，不拼读，整体读出来。",
     items: [
-      { prompt: "zhi", answer: "知", speak: "知" },
+      { prompt: "zhi", answer: "蜘", speak: "蜘" },
       { prompt: "chi", answer: "吃", speak: "吃" },
-      { prompt: "shi", answer: "诗", speak: "诗" },
+      { prompt: "shi", answer: "狮", speak: "狮" },
       { prompt: "ri", answer: "日", speak: "日" },
-      { prompt: "zi", answer: "子", speak: "子" },
-      { prompt: "ci", answer: "词", speak: "词" },
-      { prompt: "si", answer: "四", speak: "四" },
-      { prompt: "yi", answer: "衣", speak: "衣" },
-      { prompt: "wu", answer: "乌", speak: "乌" },
+      { prompt: "zi", answer: "字", speak: "字" },
+      { prompt: "ci", answer: "刺", speak: "刺" },
+      { prompt: "si", answer: "丝", speak: "丝" },
+      { prompt: "yi", answer: "医", speak: "医" },
+      { prompt: "wu", answer: "屋", speak: "屋" },
       { prompt: "yu", answer: "鱼", speak: "鱼" },
-      { prompt: "ye", answer: "叶", speak: "叶" },
+      { prompt: "ye", answer: "椰", speak: "椰" },
       { prompt: "yue", answer: "月", speak: "月" },
       { prompt: "yuan", answer: "圆", speak: "圆" },
-      { prompt: "yin", answer: "因", speak: "因" },
+      { prompt: "yin", answer: "印", speak: "印" },
       { prompt: "yun", answer: "云", speak: "云" },
       { prompt: "ying", answer: "鹰", speak: "鹰" }
     ]
