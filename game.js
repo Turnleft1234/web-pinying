@@ -2,7 +2,7 @@ const banks = {
   initials: {
     name: "声母练习",
     promptLabel: "这个声母怎么读？",
-    hint: "声母像小火车头，读得轻一点、短一点。",
+    hint: "声母共 23 个，读得轻一点、短一点。",
     items: [
       { prompt: "b", answer: "爸", speak: "爸" },
       { prompt: "p", answer: "跑", speak: "跑" },
@@ -24,63 +24,91 @@ const banks = {
       { prompt: "r", answer: "日", speak: "日" },
       { prompt: "z", answer: "子", speak: "子" },
       { prompt: "c", answer: "草", speak: "草" },
-      { prompt: "s", answer: "三", speak: "三" }
+      { prompt: "s", answer: "三", speak: "三" },
+      { prompt: "y", answer: "衣", speak: "衣" },
+      { prompt: "w", answer: "乌", speak: "乌" }
     ]
   },
-  finals: {
-    name: "韵母练习",
-    promptLabel: "这个韵母怎么读？",
-    hint: "韵母要读得响亮，让声音像气球一样打开。",
+  singleFinals: {
+    name: "单韵母练习",
+    promptLabel: "这个单韵母怎么读？",
+    hint: "单韵母共 6 个，嘴型要打开、声音要响亮。",
     items: [
       { prompt: "a", answer: "啊", speak: "啊" },
       { prompt: "o", answer: "哦", speak: "哦" },
       { prompt: "e", answer: "饿", speak: "饿" },
       { prompt: "i", answer: "衣", speak: "衣" },
       { prompt: "u", answer: "乌", speak: "乌" },
-      { prompt: "ü", answer: "鱼", speak: "鱼" },
+      { prompt: "ü", answer: "鱼", speak: "鱼" }
+    ]
+  },
+  compoundFinals: {
+    name: "复韵母练习",
+    promptLabel: "这个复韵母怎么读？",
+    hint: "复韵母共 8 个，注意从前一个口型滑到后一个口型。",
+    items: [
       { prompt: "ai", answer: "爱", speak: "爱" },
       { prompt: "ei", answer: "杯", speak: "杯" },
       { prompt: "ui", answer: "水", speak: "水" },
       { prompt: "ao", answer: "包", speak: "包" },
       { prompt: "ou", answer: "手", speak: "手" },
       { prompt: "iu", answer: "牛", speak: "牛" },
-      { prompt: "an", answer: "山", speak: "山" },
-      { prompt: "en", answer: "门", speak: "门" },
-      { prompt: "ang", answer: "羊", speak: "羊" },
-      { prompt: "eng", answer: "风", speak: "风" }
+      { prompt: "ie", answer: "叶", speak: "叶" },
+      { prompt: "üe", answer: "月", speak: "月" }
     ]
   },
-  tones: {
-    name: "声调练习",
-    promptLabel: "这个带声调的音节是哪一声？",
-    hint: "一声平，二声扬，三声拐弯，四声降。",
+  specialFinals: {
+    name: "特殊韵母练习",
+    promptLabel: "这个特殊韵母怎么读？",
+    hint: "特殊韵母 1 个：er。",
     items: [
-      { prompt: "mā", answer: "第一声", speak: "妈，第一声" },
-      { prompt: "má", answer: "第二声", speak: "麻，第二声" },
-      { prompt: "mǎ", answer: "第三声", speak: "马，第三声" },
-      { prompt: "dà", answer: "第四声", speak: "大，第四声" },
-      { prompt: "bā", answer: "第一声", speak: "八，第一声" },
-      { prompt: "yú", answer: "第二声", speak: "鱼，第二声" },
-      { prompt: "bǎ", answer: "第三声", speak: "把，第三声" },
-      { prompt: "bà", answer: "第四声", speak: "爸，第四声" }
-    ],
-    fixedOptions: ["第一声", "第二声", "第三声", "第四声"]
+      { prompt: "er", answer: "儿", speak: "儿" }
+    ]
   },
-  words: {
-    name: "词语练习",
-    promptLabel: "这个词语的拼音是哪一个？",
-    hint: "看汉字，找拼音。选对就能收集星星。",
+  frontNasalFinals: {
+    name: "前鼻韵母练习",
+    promptLabel: "这个前鼻韵母怎么读？",
+    hint: "前鼻韵母共 5 个，尾音轻轻收在 n。",
     items: [
-      { prompt: "妈妈", answer: "mā ma", speak: "妈妈" },
-      { prompt: "爸爸", answer: "bà ba", speak: "爸爸" },
-      { prompt: "苹果", answer: "píng guǒ", speak: "苹果" },
-      { prompt: "小猫", answer: "xiǎo māo", speak: "小猫" },
-      { prompt: "太阳", answer: "tài yáng", speak: "太阳" },
-      { prompt: "月亮", answer: "yuè liang", speak: "月亮" },
-      { prompt: "学校", answer: "xué xiào", speak: "学校" },
-      { prompt: "朋友", answer: "péng you", speak: "朋友" },
-      { prompt: "花朵", answer: "huā duǒ", speak: "花朵" },
-      { prompt: "小鱼", answer: "xiǎo yú", speak: "小鱼" }
+      { prompt: "an", answer: "安", speak: "安" },
+      { prompt: "en", answer: "门", speak: "门" },
+      { prompt: "in", answer: "因", speak: "因" },
+      { prompt: "un", answer: "温", speak: "温" },
+      { prompt: "ün", answer: "云", speak: "云" }
+    ]
+  },
+  backNasalFinals: {
+    name: "后鼻韵母练习",
+    promptLabel: "这个后鼻韵母怎么读？",
+    hint: "后鼻韵母共 4 个，尾音落在 ng。",
+    items: [
+      { prompt: "ang", answer: "羊", speak: "羊" },
+      { prompt: "eng", answer: "风", speak: "风" },
+      { prompt: "ing", answer: "鹰", speak: "鹰" },
+      { prompt: "ong", answer: "红", speak: "红" }
+    ]
+  },
+  wholeSyllables: {
+    name: "整体认读音节练习",
+    promptLabel: "这个整体认读音节怎么读？",
+    hint: "整体认读音节共 16 个，不拼读，整体读出来。",
+    items: [
+      { prompt: "zhi", answer: "知", speak: "知" },
+      { prompt: "chi", answer: "吃", speak: "吃" },
+      { prompt: "shi", answer: "诗", speak: "诗" },
+      { prompt: "ri", answer: "日", speak: "日" },
+      { prompt: "zi", answer: "子", speak: "子" },
+      { prompt: "ci", answer: "词", speak: "词" },
+      { prompt: "si", answer: "四", speak: "四" },
+      { prompt: "yi", answer: "衣", speak: "衣" },
+      { prompt: "wu", answer: "乌", speak: "乌" },
+      { prompt: "yu", answer: "鱼", speak: "鱼" },
+      { prompt: "ye", answer: "叶", speak: "叶" },
+      { prompt: "yue", answer: "月", speak: "月" },
+      { prompt: "yuan", answer: "圆", speak: "圆" },
+      { prompt: "yin", answer: "因", speak: "因" },
+      { prompt: "yun", answer: "云", speak: "云" },
+      { prompt: "ying", answer: "鹰", speak: "鹰" }
     ]
   }
 };
@@ -94,12 +122,7 @@ const state = {
   current: null,
   locked: false,
   flight: 0,
-  used: {
-    initials: [],
-    finals: [],
-    tones: [],
-    words: []
-  }
+  used: Object.fromEntries(Object.keys(banks).map((mode) => [mode, []]))
 };
 
 const els = {
@@ -157,14 +180,15 @@ function speak(text) {
 function makeQuestion() {
   const bank = banks[state.mode];
   const current = getNextItem(bank);
+  const distractorPool = Object.values(banks)
+    .flatMap((group) => group.items)
+    .filter((item) => item.answer !== current.answer);
+  const optionSource = bank.items.length >= 4 ? bank.items.filter((item) => item.answer !== current.answer) : distractorPool;
   const options = bank.fixedOptions
     ? bank.fixedOptions
     : shuffle([
         current.answer,
-        ...sample(
-          bank.items.filter((item) => item.answer !== current.answer),
-          3
-        ).map((item) => item.answer)
+        ...sample(optionSource, 3).map((item) => item.answer)
       ]);
 
   state.current = {
