@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>汉字识音</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="stage recognize-stage" aria-label="汉字识音游戏">
+        <div class="sky" aria-hidden="true">
+          <span class="cloud cloud-a"></span>
+          <span class="cloud cloud-b"></span>
+          <span class="star star-a"></span>
+          <span class="star star-b"></span>
+          <span class="star star-c"></span>
+        </div>
+
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Han Zi Sound</p>
+            <h1>汉字识音</h1>
+            <div class="page-actions">
+              <a class="page-link" href="index.html">拼音练习</a>
+            </div>
+          </div>
+          <div class="stats" aria-label="游戏分数">
+            <div><span>分数</span><strong id="score">0</strong></div>
+            <div><span>连对</span><strong id="streak">0</strong></div>
+            <div><span>星星</span><strong id="stars">0</strong></div>
+          </div>
+        </header>
+
+        <nav class="mode-tabs compact-tabs" aria-label="识别模式">
+          <button class="tab" data-target="initial" type="button">识别声母</button>
+          <button class="tab" data-target="final" type="button">识别韵母</button>
+          <button class="tab active" data-target="both" type="button">声母 + 韵母</button>
+        </nav>
+
+        <section class="recognize-layout">
+          <section class="recognize-card" aria-live="polite">
+            <div class="character-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+            <button class="sound-button" id="speakButton" type="button" aria-label="朗读汉字">
+              <span class="sound-icon">▶</span>
+            </button>
+            <p class="prompt-label" id="taskLabel">这个汉字的声母是什么？</p>
+            <div class="hanzi-prompt" id="hanziPrompt">播</div>
+            <p class="prompt-sub" id="pinyinHint">bō</p>
+          </section>
+
+          <section class="choice-panel">
+            <div class="choice-group" id="initialGroup">
+              <div class="choice-title">声母</div>
+              <div class="answers mini-answers" id="initialAnswers"></div>
+            </div>
+            <div class="choice-group" id="finalGroup">
+              <div class="choice-title">韵母</div>
+              <div class="answers mini-answers" id="finalAnswers"></div>
+            </div>
+            <div class="feedback" id="feedback">看汉字，找出它的声母和韵母。</div>
+          </section>
+        </section>
+
+        <footer class="controls">
+          <button class="control-button" id="skipButton" type="button">换一题</button>
+          <button class="control-button primary" id="resetButton" type="button">重新开始</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="recognize.js"></script>
+  </body>
+</html>
